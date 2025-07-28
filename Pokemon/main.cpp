@@ -2,10 +2,17 @@
 
 using namespace std;
 
+enum PokemonChoice {
+    Charmander,
+    Bulbasaur,
+    Squirtle,
+    InvalidChoice
+};
+
 int main() {
     // Variables to store player name and chosen Pokemon
     string player_name;
-    string chosen_pokemon;
+    PokemonChoice chosen_pokemon = InvalidChoice;
 
     // Introduction by the Professor
     cout << "Professor Oak: Hello there! Welcome to the world of Pokemon!\n";
@@ -38,18 +45,18 @@ int main() {
     // Store the chosen Pokemon based on user input
     switch (choice) {
     case 1:
-        chosen_pokemon = "Charmander";
+        chosen_pokemon = Charmander;
         cout << "Professor Oak: A fiery choice! Charmander is yours!\n";
         break;
 
     case 2:
-        chosen_pokemon = "Bulbasaur";
+        chosen_pokemon = Bulbasaur;
         cout << "Professor Oak: A fine choice! Bulbasaur is always ready to "
             "grow on you!\n";
         break;
 
     case 3:
-        chosen_pokemon = "Squirtle";
+        chosen_pokemon = Squirtle;
         cout << "Professor Oak: Splendid! Squirtle will keep you cool under "
             "pressure!\n";
         break;
@@ -57,7 +64,7 @@ int main() {
     default:
         cout << "Professor Oak: Hmm, that doesn't seem right. Let me choose "
             "for you...\n";
-        chosen_pokemon = "Pikachu"; // Default if no valid choice is made
+        chosen_pokemon = Charmander;
         cout << "Professor Oak: Just kidding! Let's go with Pikachu, the "
             "surprise guest!\n";
         break;
