@@ -26,11 +26,20 @@ public:
     PokemonType type;
     int health;
 
-    Pokemon() {}
+    Pokemon() {
+        name = "Pikachu";
+        type = PokemonType::Electric;
+        health = 10;
+    }
     Pokemon(string p_name, PokemonType p_type, int p_health) {
         name = p_name;
         type = p_type;
         health = p_health;
+    }
+    Pokemon(const Pokemon& other) {
+        name = other.name;
+        type = other.type;
+        health = other.health;
     }
 
     void attack() {
@@ -43,6 +52,19 @@ class Player
 public:
     string name;
     Pokemon chosenPokemon;
+
+    Player() {
+        name = "Trainer";
+        chosenPokemon = Pokemon();
+    }
+    Player(string p_name, Pokemon p_chosenPokemon) {
+        name = p_name;
+        chosenPokemon = p_chosenPokemon;
+    }
+    Player(const Player& other) {
+        name = other.name;
+        chosenPokemon = other.chosenPokemon;
+    }
 
     void choosePokemon(int choice) {
         switch ((PokemonChoice)choice)
